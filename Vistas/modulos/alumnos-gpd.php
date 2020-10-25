@@ -1,4 +1,6 @@
 <?php
+include_once '../Modelos/tabla.php';
+
 
 if($_SESSION["rol"] != "agpd"){
 
