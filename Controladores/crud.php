@@ -12,7 +12,7 @@ $id = (isset($_POST['id'])) ? $_POST['id']:'';
 
 switch ($option) {
      case 1:
-          
+          // insert
           $query = "INSERT INTO articulos(nombre_art,stock,idcategoria,idproveedor) VALUES ('$productoNombre','$productoStock','$productoCategoria','$productoProveedor')";
           $res = $connection->prepare($query);
           $res->execute();
@@ -24,6 +24,7 @@ switch ($option) {
           break;
 
      case 2:
+          // update 
           $query = "UPDATE articulos SET nombre_art='$productoNombre', stock='$productoStock',idcategoria='$productoCategoria',idproveedor='$productoProveedor' WHERE id='$id'";
           $res = $connection->prepare($query);
           $res->execute();
@@ -34,6 +35,7 @@ switch ($option) {
           $data = $res->fetchAll(PDO::FETCH_ASSOC);
           break;
      case 3:
+          // delete
           $query = "SELECT id,nombre_art,stock,idcategoria,idproveedor FROM articulos WHERE id='$id'";
           $res = $connection->prepare($query);
           $res->execute();

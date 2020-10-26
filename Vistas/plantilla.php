@@ -109,6 +109,9 @@ session_start();
 <script src="http://localhost/ConInglesAlumnos/Vistas/dist/js/demo.js"></script>
 <!-- AdminLTE for demo purposes -->
 
+<!-- main js -->
+<script src="http://localhost/ConInglesAlumnos/Vistas/js/main.js"></script>
+
 
 <!-- datatables -->
 
@@ -121,6 +124,8 @@ session_start();
 <script src="http://localhost/ConInglesAlumnos/Vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script src="http://localhost/ConInglesAlumnos/Vistas/js/alumnosgpd.js"></script>
+
+
 
 
 

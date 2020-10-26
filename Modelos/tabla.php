@@ -1,12 +1,17 @@
 <?php 
-include "connection.php";
+require_once "conexionBD.php";
 
-$object = new Connection();
-$connection = $object ->Connect();
 
-$query = "SELECT * from gpdalumnos";
-$result = $connection -> prepare($query);
-$result->execute();
-$data = $result->fetchAll(PDO::FETCH_ASSOC);
 
+
+$pdo = ConexionBD::cBD()->prepare("SELECT * from gpdalumnos");
+$pdo -> execute ();
+$data = $pdo->fetchAll(PDO::FETCH_ASSOC);
+
+ 
+
+
+
+
+$bd = null;
 ?>

@@ -8,6 +8,7 @@ $(document).ready(function(){
           }]
      })
      
+     console.log("si entro al main js");
      var rowtableNote;
 
 

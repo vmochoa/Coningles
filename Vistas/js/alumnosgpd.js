@@ -47,6 +47,106 @@ $(".DT").on("click", ".EditarAlumno", function() {
 
 })
 
+var rowtableNote;
+//boton editar
+$(document).on("click",".EditarAlumno",function(){
+    rowtableNote=$(this).closest("tr");
+    id=parseInt(rowtableNote.find('td:eq(0)').text());
+    sucursal=rowtableNote.find('td:eq(1)').text();
+    folio=rowtableNote.find('td:eq(2)').text();
+    fechacontrato=rowtableNote.find('td:eq(3)').text();
+    nombre=rowtableNote.find('td:eq(4)').text();
+    fechaintro=rowtableNote.find('td:eq(5)').text();
+    horasautorizadas=rowtableNote.find('td:eq(6)').text();
+    plan=rowtableNote.find('td:eq(7)').text();
+    curso=rowtableNote.find('td:eq(8)').text();
+    nuevoplazo=rowtableNote.find('td:eq(9)').text();
+    cartas=rowtableNote.find('td:eq(10)').text();
+    fechavencimiento=rowtableNote.find('td:eq(11)').text();
+    observaciones=rowtableNote.find('td:eq(12)').text();
+    libro=rowtableNote.find('td:eq(13)').text();
+    fechanacimiento=rowtableNote.find('td:eq(14)').text();
+    direccion=rowtableNote.find('td:eq(15)').text();
+    correo=rowtableNote.find('td:eq(16)').text();
+    avance=rowtableNote.find('td:eq(17)').text();
+    vendedora=rowtableNote.find('td:eq(18)').text();
+    foto=rowtableNote.find('td:eq(19)').text();
+    telefono=rowtableNote.find('td:eq(20)').text();
+    telefonocasa=rowtableNote.find('td:eq(21)').text();
+    $("#sucursalE").val(name);
+    $("#folioE").val(stock);
+    $("#fechacontratoE").val(categoria);
+    $("#nombreE").val(proveedor);
+    $("#fechaintroE").val(name);
+    $("#horasautorizadasE").val(stock);
+    $("#planE").val(categoria);
+    $("#cursoE").val(proveedor);
+    $("#nuevoplazoE").val(name);
+    $("#cartasE").val(stock);
+    $("#fechavencimientoE").val(categoria);
+    $("#observacionesE").val(proveedor);
+    $("#libroE").val(stock);
+    $("#fechanacimientoE").val(categoria);
+    $("#direccionE").val(proveedor);
+    $("#correoE").val(proveedor);
+    $("#avanceE").val(stock);
+    $("#vendedoraE").val(categoria);
+    $("#fotoE").val(proveedor);
+    $("#telefonoE").val(categoria);
+    $("#telefonocasaE").val(proveedor);
+    option=2;
+});
+
+
+ //manda la informacion en json hacia crud.php
+ $("#formNotes").submit(function(e){
+    e.preventDefault();
+    sucursal=$.trim($("#sucursalE").val());
+    folio=$.trim($("#folioE").val());
+    fechacontrato=$.trim($("#fechacontratoE").val());
+    nombre=$.trim($("#nombreE").val());
+    fechaintro=$.trim($("#fechaintroE").val());
+    horasautorizadas=$.trim($("#horasautorizadasE").val());
+    plan=$.trim($("#planE").val());
+    curso=$.trim($("#cursoE").val());
+    nuevoplazo=$.trim($("#nuevoplazoE").val());
+    cartas=$.trim($("#cartasE").val());
+    fechavencimiento=$.trim($("#fechavencimientoE").val());
+    observaciones=$.trim($("#observacionesE").val());
+    libro=$.trim($("#libroE").val());
+    fechanacimiento=$.trim($("#fechanacimientoE").val());
+    direccion=$.trim($("#direccionE").val());
+    correo=$.trim($("#correoE").val());
+    avance=$.trim($("#avanceE").val());
+    vendedora=$.trim($("#vendedoraE").val());
+    foto=$.trim($("#fotoE").val());
+    telefono=$.trim($("#telefonoE").val());
+    telefonocasa=$.trim($("#telefonocasaE").val());
+
+    $.ajax({
+         type: "POST",
+         url: "crud.php",
+         data: {sucursal:sucursal,folio:folio,fechacontrato:fechacontrato,nombre:nombre,fechaintro:fechaintro,horasautorizadas:horasautorizadas,plan:plan,curso:curso,nuevoplazo:nuevoplazo,cartas:cartas,fechavencimiento:fechavencimiento,observaciones:observaciones,libro:libro,fechanacimiento:fechanacimiento,direccion:direccion,correo:correo,avance:avance,vendedora:vendedora,foto:foto,telefono:telefono,telefonocasa:telefonocasa,id:id,option:option},
+         dataType: "json",
+         success: function (data) {
+              console.log('SUCCESS');
+              console.log(data);
+              id=data[0].id;
+              if (option==1) {
+                   TablaArticulos.row.add([id,name,stock,categoria,proveedor]).draw();
+              } else {
+                   TablaArticulos.row(rowtableNote).data([id,name,stock,categoria,proveedor]).draw();
+              }
+              $('#EditarAlumno').modal('hide');
+
+         },error(x,y,z){
+              console.log(x);
+              console.log(y);
+              console.log(z);
+         }
+    });
+});
+
 
 
 $(".DT").on("click", ".EliminarAlumno", function() {
