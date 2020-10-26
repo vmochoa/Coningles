@@ -1,8 +1,8 @@
 <?php 
-include __DIR__ . "/../Modelos/conexionBD.php";
-$object = new Connection();
-$connection = $object->Connect();
-echo "si entro en el crud";
+// include __DIR__ . "/../Modelos/conexionBD.php";
+// $object = new Connection();
+// $connection = $object->Connect();
+echo "si entro en el crudphp";
 
 $id = (isset($_POST['id'])) ? $_POST['id']:'';
 $sucursal = (isset($_POST['sucursal'])) ? $_POST['sucursal']:'';
@@ -47,7 +47,7 @@ switch ($option) {
           $data = $pdo->fetchAll(PDO::FETCH_ASSOC);
           $pdo -> execute ();
           
-          $query = "SELECT id,nombre_art,stock,idcategoria,idproveedor FROM articulos WHERE id='$id'";
+          $query = "SELECT * from gpdalumnos WHERE id='$id'";
           $res = $connection->prepare($query);
           $res->execute();
           $data = $res->fetchAll(PDO::FETCH_ASSOC);

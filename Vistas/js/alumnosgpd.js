@@ -122,10 +122,11 @@ $(document).on("click",".EditarAlumno",function(){
     foto=$.trim($("#fotoE").val());
     telefono=$.trim($("#telefonoE").val());
     telefonocasa=$.trim($("#telefonocasaE").val());
+    
 
     $.ajax({
          type: "POST",
-         url: "crud.php",
+         url: "Controladores/crud.php",
          data: {sucursal:sucursal,folio:folio,fechacontrato:fechacontrato,nombre:nombre,fechaintro:fechaintro,horasautorizadas:horasautorizadas,plan:plan,curso:curso,nuevoplazo:nuevoplazo,cartas:cartas,fechavencimiento:fechavencimiento,observaciones:observaciones,libro:libro,fechanacimiento:fechanacimiento,direccion:direccion,correo:correo,avance:avance,vendedora:vendedora,foto:foto,telefono:telefono,telefonocasa:telefonocasa,id:id,option:option},
          dataType: "json",
          success: function (data) {
@@ -134,9 +135,11 @@ $(document).on("click",".EditarAlumno",function(){
               id=data[0].id;
               if (option==1) {
                    TablaArticulos.row.add([id,sucursal,folio,fechacontrato,nombre,fechaintro,horasautorizadas,plan,curso,nuevoplazo,cartas,fechavencimiento,observaciones,libro,folio,fechanacimiento,direccion,correo,avance,vendedora,foto,telefono,telefonocasa]).draw();
+                   console.log("Entro en el 1");
               } else {
                    TablaArticulos.row(rowtableNote).data([id,sucursal,folio,fechacontrato,nombre,fechaintro,horasautorizadas,plan,curso,nuevoplazo,cartas,fechavencimiento,observaciones,libro,folio,fechanacimiento,direccion,correo,avance,vendedora,foto,telefono,telefonocasa]).draw();
               }
+              console.log("Entro en el ELSE");
               $('#EditarAlumno').modal('hide');
 
          },error(x,y,z){
