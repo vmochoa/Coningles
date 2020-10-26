@@ -73,27 +73,27 @@ $(document).on("click",".EditarAlumno",function(){
     foto=rowtableNote.find('td:eq(19)').text();
     telefono=rowtableNote.find('td:eq(20)').text();
     telefonocasa=rowtableNote.find('td:eq(21)').text();
-    $("#sucursalE").val(name);
-    $("#folioE").val(stock);
-    $("#fechacontratoE").val(categoria);
-    $("#nombreE").val(proveedor);
-    $("#fechaintroE").val(name);
-    $("#horasautorizadasE").val(stock);
-    $("#planE").val(categoria);
-    $("#cursoE").val(proveedor);
-    $("#nuevoplazoE").val(name);
-    $("#cartasE").val(stock);
-    $("#fechavencimientoE").val(categoria);
-    $("#observacionesE").val(proveedor);
-    $("#libroE").val(stock);
-    $("#fechanacimientoE").val(categoria);
-    $("#direccionE").val(proveedor);
-    $("#correoE").val(proveedor);
-    $("#avanceE").val(stock);
-    $("#vendedoraE").val(categoria);
-    $("#fotoE").val(proveedor);
-    $("#telefonoE").val(categoria);
-    $("#telefonocasaE").val(proveedor);
+    $("#sucursalE").val(sucursal);
+    $("#folioE").val(folio);
+    $("#fechacontratoE").val(fechacontrato);
+    $("#nombreE").val(nombre);
+    $("#fechaintroE").val(fechaintro);
+    $("#horasautorizadasE").val(horasautorizadas);
+    $("#planE").val(plan);
+    $("#cursoE").val(curso);
+    $("#nuevoplazoE").val(nuevoplazo);
+    $("#cartasE").val(cartas);
+    $("#fechavencimientoE").val(fechavencimiento);
+    $("#observacionesE").val(observaciones);
+    $("#libroE").val(libro);
+    $("#fechanacimientoE").val(fechanacimiento);
+    $("#direccionE").val(direccion);
+    $("#correoE").val(correo);
+    $("#avanceE").val(avance);
+    $("#vendedoraE").val(vendedora);
+    $("#fotoE").val(foto);
+    $("#telefonoE").val(telefono);
+    $("#telefonocasaE").val(telefonocasa);
     option=2;
 });
 
@@ -133,9 +133,9 @@ $(document).on("click",".EditarAlumno",function(){
               console.log(data);
               id=data[0].id;
               if (option==1) {
-                   TablaArticulos.row.add([id,name,stock,categoria,proveedor]).draw();
+                   TablaArticulos.row.add([id,sucursal,folio,fechacontrato,nombre,fechaintro,horasautorizadas,plan,curso,nuevoplazo,cartas,fechavencimiento,observaciones,libro,folio,fechanacimiento,direccion,correo,avance,vendedora,foto,telefono,telefonocasa]).draw();
               } else {
-                   TablaArticulos.row(rowtableNote).data([id,name,stock,categoria,proveedor]).draw();
+                   TablaArticulos.row(rowtableNote).data([id,sucursal,folio,fechacontrato,nombre,fechaintro,horasautorizadas,plan,curso,nuevoplazo,cartas,fechavencimiento,observaciones,libro,folio,fechanacimiento,direccion,correo,avance,vendedora,foto,telefono,telefonocasa]).draw();
               }
               $('#EditarAlumno').modal('hide');
 
