@@ -9,7 +9,7 @@ require_once "Controladores/AlumnosGPDC.php";
 require_once "Modelos/AlumnosGPDM.php";
 
 
-//cambio 1
+//cambio 2
 
 $plantilla = new Plantilla();
 $plantilla -> LlamarPlantilla();
